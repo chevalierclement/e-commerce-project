@@ -4,12 +4,19 @@ let xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         // définition des constantes
+
+
         const monTableau = this.response;        
         const productList = document.getElementById('productList');
 
         //boucle sur l'ensemble des éléments de la réponse
-        for ( i = 0 ; i < monTableau.length ; i++ ) {    
-            buildProduct(productList, monTableau[i].name, monTableau[i].imageUrl, monTableau[i].price);
+        for ( i = 0 ; i < monTableau.length ; i++ ) {
+
+            addHTMLElement('a', 'product-in-sell', productList);
+            var productInSell = document.getElementById('product-in-sell');
+            productInSell.href = 'details-product.html?' + nameProduct;
+
+            buildProduct(productInSell, monTableau[i].name, monTableau[i].imageUrl, monTableau[i].price);
         }
     } 
     // gestion d'une erreur 404

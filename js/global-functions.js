@@ -1,41 +1,59 @@
-//fonction de création d'une div HTML
+/*
+--- Div simple OK
+--- Image
+    document.getElementById('idImage').src = masource;
+--- Nom
+    document.getElementById('idNom').innerHTML = monNom;
+--- Prix
+    document.getElementById('idPrix').innerHTML = monPrix;
+--- Description
+    document.getElementById('idNom').innerHTML = monNom;
+--- Button
+    document.getElementById('idButton').innerHTML = btnContent;
+
+*/ 
+
+// fonction qui crée un élément du DOM, lui donne un id et le lie à un élément parent
+function addHTMLElement(typeElement, idElement, parentSection){
+    var myHTMLElement = document.createElement(typeElement);
+    myHTMLElement.id = idElement;
+    parentSection.appendChild(myHTMLElement);
+}
+
+// fonction qui remplit un contenu html
+function contentHTML(id, content){
+    document.getElementById(id).innerHTML = content;
+}
+
+//fonction de construction d'un produit avec ses caractères principaux (IMAGE, NOM, PRIX)
+function buildProduct(parentSection, nameProduct, srcProduct, priceProduct) {
+    addHTMLElement('img', 'img-product', parentSection);
+    document.getElementById('img-product').src = srcProduct;
+    addHTMLElement('h2', 'name-product', parentSection);
+    contentHTML('name-product', nameProduct);
+    addHTMLElement('h4', 'price-product', parentSection);
+    contentHTML('price-product', priceProduct);  
+};
+
+
+/*
+
+//fonction de création d'une div HTML **
 function buildDiv (section, identifiant) {
     var maDiv = document.createElement('div');
     maDiv.id = identifiant;
     section.appendChild(maDiv);
 };
 
-//fonction d'ajout d'une image
-function addImageProduct (section, srcProduct) {
-    var productImage = document.createElement('img');
-    productImage.src = srcProduct;
-    productImage.id = 'image-product';
-    section.appendChild(productImage);
-}
-
-//fonction d'ajout du nom
-function addNameProduct (section, nameProduct) {
-    var productName = document.createElement('h2');
-    productName.innerHTML = nameProduct;
-    productName.id = 'name-product';
-    section.appendChild(productName);
-}
-
-//fonction d'ajout du prix
-function addPriceProduct (section, priceProduct) {
-    var productPrice = document.createElement('h4');
-    productPrice.innerHTML = priceProduct/100 + ' €';
-    productPrice.id = 'price-product';
-    section.appendChild(productPrice);
-}
-
-//fonction d'ajout d'une description
+//fonction d'ajout d'une description **
 function addDescriptionProduct (section, description) {
     var descriptionProduct = document.createElement('p');
     descriptionProduct.id = 'description-product';
     descriptionProduct.innerHTML = description;
     section.appendChild(descriptionProduct);
 }
+
+*/
 
 //fonction d'ajout d'un label
 function addLabel (section, labelFor, labelHTML) {
@@ -59,7 +77,9 @@ function addSelect (section, selectName, referenceArray, identifiant) {
     section.appendChild(select);
 };
 
-//fonction d'ajout d'un bouton
+/*
+
+//fonction d'ajout d'un bouton **
 function addButton (section, buttonHTML, identifiant) {
     var button = document.createElement('button');
     button.id = identifiant;
@@ -67,28 +87,12 @@ function addButton (section, buttonHTML, identifiant) {
     section.appendChild(button);
 };
 
+*/
 
-//fonction de construction d'un produit en vente
-function buildProduct (section, nameProduct, srcProduct, priceProduct) {
-    const productSell = document.createElement('a');
-    productSell.href = 'details-product.html?' + nameProduct;
-    productSell.id = 'product-sell';
-    addImageProduct(productSell, srcProduct);
-    addNameProduct(productSell, nameProduct);
-    addPriceProduct(productSell, priceProduct);
-    section.appendChild(productSell);
-};
 
-//fonction de construction d'un produit à customiser
-function buildProductDetails (section, nameProduct, srcProduct, priceProduct, descriptionProduct) {
-    const productDetails = document.createElement('div');
-    productDetails.id = 'product-details';
-    addImageProduct(productDetails, srcProduct);
-    addNameProduct(productDetails, nameProduct);
-    addPriceProduct(productDetails, priceProduct);
-    addDescriptionProduct(productDetails, descriptionProduct);
-    section.appendChild(productDetails);
-};
+
+
+
 
 //fonction d'affichage du panier
 function showBasket(section, array) {
