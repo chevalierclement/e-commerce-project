@@ -84,10 +84,6 @@
     border: 1px solid #2c211a;
 }
 
-.product-details button{
-
-}
-
 .product-details a:hover .price-pdt{
     box-shadow: inset 120px 0 0 0 #704D37;
     color: #e9d4c5;
@@ -155,8 +151,7 @@
     } 
     .prdt-item h2{
         padding-top: 20px;
-    }
-    
+    }    
 }
 
 /* Tablet Responsive */
