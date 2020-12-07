@@ -1,40 +1,63 @@
-/*
---- Div simple OK
---- Image
-    document.getElementById('idImage').src = masource;
---- Nom
-    document.getElementById('idNom').innerHTML = monNom;
---- Prix
-    document.getElementById('idPrix').innerHTML = monPrix;
---- Description
-    document.getElementById('idNom').innerHTML = monNom;
---- Button
-    document.getElementById('idButton').innerHTML = btnContent;
+function productInList(name, price, url, linkPdt, sectionParent){
+    var e = document.createElement('li');
+    e.className = 'prdt-item';
+    
+    var div = document.createElement('div');
+    div.className = 'product-details';
 
-*/ 
 
-// fonction qui crée un élément du DOM, lui donne un id et le lie à un élément parent
-function addHTMLElement(typeElement, idElement, parentSection){
-    var myHTMLElement = document.createElement(typeElement);
-    myHTMLElement.id = idElement;
-    parentSection.appendChild(myHTMLElement);
+
+    var imgPdt = document.createElement('img');
+    imgPdt.src = url;
+
+    var namePdt = document.createElement('h2');
+    namePdt.innerHTML = name;
+
+    var pricePdt = document.createElement('p');
+    pricePdt.innerHTML = price/100 + '.00 €';
+
+
+
+
+    
+    
+    
+    
+    
+    var link = document.createElement('a'); 
+    link.href = linkPdt;
+
+    var pricePdt = document.createElement('p');
+    pricePdt.innerHTML = price/100 + '.00 €';
+    pricePdt.className = 'price-pdt';
+
+    var buy  = document.createElement('p');
+    buy.innerHTML = 'BUY';
+    buy.className = 'buy';
+
+
+    link.appendChild(pricePdt);
+    link.appendChild(buy);
+
+    div.appendChild(namePdt);
+    div.appendChild(link);
+
+
+
+    e.appendChild(imgPdt);
+    e.appendChild(div);
+    
+    
+
+
+    
+   
+    
+    
+    
+    
+    sectionParent.appendChild(e);
 }
-
-// fonction qui remplit un contenu html
-function contentHTML(id, content){
-    document.getElementById(id).innerHTML = content;
-}
-
-//fonction de construction d'un produit avec ses caractères principaux (IMAGE, NOM, PRIX)
-function buildProduct(parentSection, nameProduct, srcProduct, priceProduct) {
-    addHTMLElement('img', 'img-product', parentSection);
-    document.getElementById('img-product').src = srcProduct;
-    addHTMLElement('h2', 'name-product', parentSection);
-    contentHTML('name-product', nameProduct);
-    addHTMLElement('h4', 'price-product', parentSection);
-    contentHTML('price-product', priceProduct);  
-};
-
 
 /*
 
@@ -76,22 +99,6 @@ function addSelect (section, selectName, referenceArray, identifiant) {
     }
     section.appendChild(select);
 };
-
-/*
-
-//fonction d'ajout d'un bouton **
-function addButton (section, buttonHTML, identifiant) {
-    var button = document.createElement('button');
-    button.id = identifiant;
-    button.innerHTML = buttonHTML;
-    section.appendChild(button);
-};
-
-*/
-
-
-
-
 
 
 //fonction d'affichage du panier

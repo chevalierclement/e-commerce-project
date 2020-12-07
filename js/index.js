@@ -1,31 +1,17 @@
-//initialisation de la requête
-let xhr = new XMLHttpRequest();
+// déclaration des constantes
+const urlApi = 'http://localhost:3000/api/cameras';
+const productsList = document.getElementById('prdt-lt');
 
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        // définition des constantes
-
-
-        const monTableau = this.response;        
-        const productList = document.getElementById('productList');
-
-        //boucle sur l'ensemble des éléments de la réponse
-        for ( i = 0 ; i < monTableau.length ; i++ ) {
-
-            addHTMLElement('a', 'product-in-sell', productList);
-            var productInSell = document.getElementById('product-in-sell');
-            productInSell.href = 'details-product.html?' + nameProduct;
-
-            buildProduct(productInSell, monTableau[i].name, monTableau[i].imageUrl, monTableau[i].price);
-        }
-    } 
-    // gestion d'une erreur 404
-    else if (this.readyState == 4 && this.status == 404) {
-        alert('attention: erreur 404');
-    }
-};
-
-//utilisation de la requête
-xhr.open("GET", 'http://localhost:3000/api/cameras');
-xhr.responseType = "json";
-xhr.send();
+// requête API à l'aide de Fetch
+fetch(urlApi)
+.then(response => {
+    if (response.ok){
+        return response.json();
+    } else {
+        productsList.innerHTML = 'erreur 404';
+    }   
+}).then(datas => {
+    datas.forEach(e => {
+        productInList(e.name, e.price, e.imageUrl, 'pages/product-details.html?' + e.name, productsList);
+    });
+});
