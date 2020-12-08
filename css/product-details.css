@@ -1,0 +1,74 @@
+#prdt-custo-ctnr, #prdt-custo{  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prdt-custo-title{
+    font-size: 2.5rem;
+    font-weight: 400;
+    padding: 50px 0;
+}
+
+.img-prdt-custo{
+    width: 550px;
+    height: 350px;
+}
+
+.name-custo{
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-top: 10px;
+}
+
+.price-custo{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.description-custo{
+    padding: 20px 50px; 
+    font-size: 1.1rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+#choices label{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#lentille-choisie, #quantite-choisie{
+    border: none;
+    padding: 5px 10px;
+    margin: 0 15px;
+    background: rgba(255, 255, 255, 0.4);
+    outline: none;
+}
+
+.buttonBasket{
+    border: 1px solid black;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: rgba(73, 31, 2, 0.6);
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    transition: ease-in-out .2s;
+    box-shadow: inset 0 0 0 0 #ffffff;
+    
+}
+
+.buttonBasket:hover{
+    box-shadow: inset 300px 0 0 0 #ffffff;
+}
+
+.buttonBasket:active{
+    transform: scale(.9);
+    transition: transform .3s;
+}
