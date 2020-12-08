@@ -12,7 +12,7 @@ fetch(urlApi)
     }   
 }).then(datas => {
     datas.forEach(e => {
-        productInList(e.name, e.price, e.imageUrl, 'pages/product-details.html?' + e.name, productsList);
+        productInList(productsList, e.name, e.price, e.imageUrl, 'pages/product-details.html?' + e.name);
     });
 }).catch( () => {
     productsList.innerHTML = 'le serveur est éteint';

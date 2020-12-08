@@ -16,25 +16,17 @@ fetch(urlApi)
     for ( i = 0 ; i < datas.length ; i++ ) {
         console.log(datas[i].name);
         if ( '?' + datas[i].name.replace(/ /g, '%20') == window.location.search) {
-            console.log('cest trouvé');
-
-            productInList(datas[i].name, datas[i].price, datas[i].imageUrl, 'pages/product-details.html?' + datas.name, productCusto);
-            
-           
-            
-
-            /* buildDiv(productList, 'config-product');
-
-            const configProduct = document.getElementById('config-product');
-
+            productToCusto(productCusto, datas[i].name, datas[i].price, datas[i].imageUrl, datas[i].description);
+            var myProductCusto = document.getElementById('prdt-custo');
+            var choice = addIdEl(myProductCusto,'div', 'choices');
             //ajout du sélecteur de lentille
-            addLabel(configProduct, 'selection-lentille', 'Lentille');
-            addSelect(configProduct, 'lentilles', myProducts[i].lenses, 'lentille-choisie');
+            addLabel(choice, 'selection-lentille', 'Lentille');
+            addSelect(choice, 'lentilles', datas[i].lenses, 'lentille-choisie');
             //ajout du sélecteur de quantité
-            addLabel(configProduct, 'selection-quantity', 'Quantité');
-            addSelect(configProduct, 'quantité', [1,2,3,4,5,6,7,8,9,10], 'quantite-choisie');
+            addLabel(choice, 'selection-quantity', 'Quantité');
+            addSelect(choice, 'quantité', [1,2,3,4,5,6,7,8,9,10], 'quantite-choisie');
             //ajout du bouton d'ajout au panier
-            addButton(configProduct, 'AJOUTER AU PANIER', 'buttonBasket');*/
+            addTextEl(myProductCusto, 'button', 'AJOUTER AU PANIER', 'buttonBasket');
         }
     }
 });
