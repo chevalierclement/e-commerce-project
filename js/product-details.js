@@ -26,7 +26,56 @@ fetch(urlApi)
             addLabel(choice, 'selection-quantity', 'Quantité');
             addSelect(choice, 'quantité', [1,2,3,4,5,6,7,8,9,10], 'quantite-choisie');
             //ajout du bouton d'ajout au panier
-            addTextEl(myProductCusto, 'button', 'AJOUTER AU PANIER', 'buttonBasket');
+            var monBouton = addIdEl(myProductCusto, 'button', 'buttonBasket');
+            monBouton.innerHTML = 'AJOUTER AU PANIER';
         }
     }
+
+    //ajout dans le localStorage
+    var buttonBasket = document.getElementById('buttonBasket');
+
+    buttonBasket.onclick = function ajouterAuPanier () {
+        //récupération du nom
+        const nameProduct = document.getElementsByClassName('name-custo')[0].innerHTML;
+        console.log(nameProduct);
+        //récupération du prix
+        const priceProduct = document.getElementsByClassName('price-custo')[0].innerHTML;
+        console.log(priceProduct);
+        //récupération de la lentille choisie
+        const lentilleChoisie = document.getElementById('lentille-choisie').options[document.getElementById('lentille-choisie').selectedIndex].text;
+        //récupération de la quantité choisie
+        const quantiteChoisie = document.getElementById('quantite-choisie').options[document.getElementById('quantite-choisie').selectedIndex].text;
+        // définition du produit choisi
+        const myProductChoose = Object.fromEntries([['nom',nameProduct], ['prix', priceProduct],['quantité', quantiteChoisie], ['lentille',lentilleChoisie]]);
+
+        let items = [];
+
+        if (localStorage.length === 0) {
+            items.push(myProductChoose);
+            localStorage.setItem('items', JSON.stringify(items));
+
+        } else {
+            var localItems = JSON.parse(localStorage.getItem('items'));
+            var check = false;
+
+            for ( i = 0 ; i <= localItems.length - 1 ; i++ ) {                    
+                if ( localItems[i].nom === myProductChoose.nom && localItems[i].lentille === myProductChoose.lentille ) {
+                
+                    quantityNumb = parseInt(localItems[i].quantité);
+                    quantityNumb = quantityNumb + parseInt(myProductChoose.quantité);
+                    localItems[i].quantité = quantityNumb.toString();
+                    localStorage.setItem('items', JSON.stringify(localItems));
+                    check = true;
+                }
+            }
+
+            if ( check === false ) {
+                localItems.push(myProductChoose);
+                localStorage.setItem('items', JSON.stringify(localItems));
+            }      
+        };
+    
+
+    };
+
 });

@@ -6,9 +6,9 @@
 }
 
 .prdt-custo-title{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
-    padding: 50px 0;
+    padding: 25px 0;
 }
 
 .img-prdt-custo{
@@ -48,13 +48,13 @@
     outline: none;
 }
 
-.buttonBasket{
+#buttonBasket{
     border: 1px solid black;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 2px;
     padding: 10px 20px;
-    margin-top: 20px;
+    margin: 20px 0 70px 0;
     background: rgba(73, 31, 2, 0.6);
     cursor: pointer;
     outline: none;
@@ -64,11 +64,11 @@
     
 }
 
-.buttonBasket:hover{
+#buttonBasket:hover{
     box-shadow: inset 300px 0 0 0 #ffffff;
 }
 
-.buttonBasket:active{
+#buttonBasket:active{
     transform: scale(.9);
     transition: transform .3s;
 }

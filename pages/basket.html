@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS & Icon Fontawesome -->
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/basket.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    <title>Orinoco | Boutique en ligne</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../home.html" class="navbar-brand"><span>o</span>rin<span>o</span>c<span>o</span></a>
+            <a href="basket.html" class="navbar-bkt-lk"><i class="fas fa-shopping-cart"></i></a>
+        </div> 
+    </nav>
+
+    <!-- Products Bought -->
+    <section id="list-prdt-basket">
+        <h2 class="list-basket-title">Vos achats</h2>
+        <ul>
+            <li class="list-categories">Nom</li>
+            <li class="list-categories">Lentille</li>
+            <li class="list-categories">Quantité</li>
+            <li class="list-categories">Prix</li>
+        </ul>
+    </section>
+
+    <!-- Links and Amount -->
+    <div class="links-and-amount">
+        <div class="basket-links">
+            <a href="../home.html" class="btn">Continuer mes achats</a>
+            <a href="basket.html" class="btn" id="emptyBasket">Vider mon panier</a>
+        </div>
+        <p class="amount">Total: <span id="totalAmount"></span></p>
+    </div>
+
+    <!-- Send Form -->
+    <section id="form">
+        <form id="form-contact" action="" method="POST">
+            <h4> Formulaire de commande </h4>
+            <input class="form-input" autocomplete="off" type="text" name="firstname" placeholder="Prénom *" pattern="^\D*$" required>
+            <input class="form-input" autocomplete="off" type="text" name="name" placeholder="Nom *" pattern="^\D*$" required>
+            <input class="form-input" autocomplete="off" type="text" name="adress" placeholder="Adresse *" required>
+            <input class="form-input" autocomplete="off" type="text" name="city" placeholder="Ville *" required>
+            <input class="form-input" autocomplete="off" type="email" name="email" placeholder="Adresse électronique *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <!-- ajouter l'emploi -->
+            <input type="submit" value="ENVOYER" id="sendBasket" class="btn">
+        </form>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../js/global-functions.js"></script>
+    <script src="../js/basket.js"></script>
+    
+</body>
+</html>
