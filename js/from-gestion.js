@@ -1,5 +1,7 @@
-function sendData(){
-    const myForm = document.getElementById('form-contact');
+const myForm = document.getElementById('form-contact');
+myForm.onsubmit = sendData;
+
+function sendData(formulaire){
     var localItems = JSON.parse(localStorage.getItem('items'));
     var ids = [];
 
@@ -11,11 +13,11 @@ function sendData(){
     // définition du body à envoyer dans la requête
     var data = JSON.stringify({
         contact: {
-            firstName: myForm.firstname.value,
-            lastName: myForm.name.value,
-            address: myForm.address.value,
-            city: myForm.city.value,
-            email: myForm.email.value
+            firstName: formulaire.firstname.value,
+            lastName: formulaire.name.value,
+            address: formulaire.address.value,
+            city: formulaire.city.value,
+            email: formulaire.email.value
         },
         products: ids
     });
@@ -31,8 +33,7 @@ function sendData(){
         return response.json()
     })
     .then(data => {
-        var babou = data.orderId;
-        console.log(babou);
+        console.log(data.orderId);
     }).catch(error => {
         console.log('error');
     });
