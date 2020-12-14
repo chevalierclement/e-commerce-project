@@ -15,7 +15,9 @@ if (localStorage.length === 0) {
 } else {
     for ( i = 0 ; i <= localItems.length - 1 ; i++ ) {
         var quantityArray = parseInt(localItems[i].quantité);
+
         var priceArray =  parseInt(localItems[i].prix.replace(' €', ''));
+        
         var priceProduct = quantityArray * priceArray;              
         monTableau.push([localItems[i].nom,localItems[i].lentille, quantityArray, priceProduct + ' €']);
         totalAmount = totalAmount + priceProduct;
