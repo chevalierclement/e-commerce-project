@@ -71,10 +71,6 @@
     
 }
 
-.btn:hover{
-    
-}
-
 .btn:active{
     transform: scale(.9);
     transition: transform .3s;
@@ -84,7 +80,7 @@
     margin: 10px 0;
     border: none;
     border-radius: 5px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 

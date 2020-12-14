@@ -95,3 +95,9 @@ function showBasket(section, array) {
     itemProduct.appendChild(productPrice);
     section.appendChild(itemProduct);
 }
+
+// vider le panier d'achat
+function viderPanier(){
+    localStorage.clear();
+    window.location.reload();
+};

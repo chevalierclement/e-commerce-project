@@ -1,12 +1,12 @@
-/* déclaration des variables utiles au script */
+// déclaration des variables
 var localItems = JSON.parse(localStorage.getItem('items'));
-
 var sectionBasket = document.getElementById('list-prdt-basket');
-
 var monTableau = [];
 var totalAmount = 0;
+var buttonEmptyBasket = document.getElementById('emptyBasket');
+const sendButton = document.getElementById('sendButton');
 
-/* construction du tableau de produits commandés en fonction du localStorage */
+// élaboration du tableau de produit commandé à partir du local storage
 if (localStorage.length === 0) {
     var emptyBasket = document.createElement('p');
     emptyBasket.id = "empty-sentence";
@@ -22,19 +22,17 @@ if (localStorage.length === 0) {
     }    
 }
 
-// affichage du tableau trié
+// tri par ordre alphabétique du tableau obtenu 
 monTableau.sort();
 
+// affichage du tableau d'achats
 for ( i = 0 ; i <= monTableau.length - 1 ; i++ ) {
     showBasket(sectionBasket, monTableau);
 }
 
+// vider le panier d'achats
+buttonEmptyBasket.addEventListener('click', viderPanier);
+
+// affichage du prix total
 var amountHTML = document.getElementById('totalAmount');
 amountHTML.innerHTML = totalAmount + ' €';
-
-/* gestion du bouton vider mon panier */
-var buttonEmptyBasket = document.getElementById('emptyBasket');
-buttonEmptyBasket.onclick = function () {
-    localStorage.clear();
-    window.location.reload();
-};
