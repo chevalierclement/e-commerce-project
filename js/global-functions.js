@@ -99,5 +99,4 @@ function showBasket(section, array) {
 // vider le panier d'achat
 function viderPanier(){
     localStorage.clear();
-    window.location.reload();
 };

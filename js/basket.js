@@ -4,7 +4,7 @@ var sectionBasket = document.getElementById('list-prdt-basket');
 var monTableau = [];
 var totalAmount = 0;
 var buttonEmptyBasket = document.getElementById('emptyBasket');
-const sendButton = document.getElementById('sendButton');
+
 
 
 // élaboration du tableau de produit commandé à partir du local storage

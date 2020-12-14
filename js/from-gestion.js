@@ -1,7 +1,5 @@
-const myForm = document.getElementById('form-contact');
-myForm.onsubmit = sendData;
-
-function sendData(formulaire){
+function sendData(){
+    const myForm = document.getElementById('form-contact');
     var localItems = JSON.parse(localStorage.getItem('items'));
     var ids = [];
 
@@ -13,11 +11,11 @@ function sendData(formulaire){
     // définition du body à envoyer dans la requête
     var data = JSON.stringify({
         contact: {
-            firstName: formulaire.firstname.value,
-            lastName: formulaire.name.value,
-            address: formulaire.address.value,
-            city: formulaire.city.value,
-            email: formulaire.email.value
+            firstName: myForm.firstname.value,
+            lastName: myForm.name.value,
+            address: myForm.address.value,
+            city: myForm.city.value,
+            email: myForm.email.value
         },
         products: ids
     });
@@ -33,7 +31,9 @@ function sendData(formulaire){
         return response.json()
     })
     .then(data => {
-        console.log(data.orderId);
+        console.log(data);
+        localStorage.setItem('monIdOrder', data.orderId);
+        window.location.href = '../pages/recap-commande.html';
     }).catch(error => {
         console.log('error');
     });

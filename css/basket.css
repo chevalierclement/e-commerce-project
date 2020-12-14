@@ -48,12 +48,6 @@
 }
 
 
-
-
-
-
-
-
 .btn{
     border: 1px solid black;
     font-size: 1rem;
@@ -102,9 +96,16 @@
 form{
     display: flex;
     flex-direction: column;
-    margin: 0 auto 50px auto;
-    padding: 20px;
+    margin: 0 auto 0 auto;
     width: 800px;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 100px 0;
 }
 
 #form-contact h4{
