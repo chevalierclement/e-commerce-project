@@ -40,23 +40,28 @@
         <p class="amount">Total: <span id="totalAmount"></span></p>
     </div>
 
+    <p id="test"></p>
+
     <!-- Send Form -->
     <section id="form">
-        <form id="form-contact" action="recap-commande.html">
+        <form id="form-contact" name="monformulaire" action="../pages/recap-commande.html">
             <h4> Formulaire de commande </h4>
             <input class="form-input" autocomplete="off" type="text" name="firstname" placeholder="Prénom *" pattern="^\D*$" required>
             <input class="form-input" autocomplete="off" type="text" name="name" placeholder="Nom *" pattern="^\D*$" required>
-            <input class="form-input" autocomplete="off" type="text" name="adress" placeholder="Adresse *" required>
+            <input class="form-input" autocomplete="off" type="text" name="address" placeholder="Adresse *" required>
             <input class="form-input" autocomplete="off" type="text" name="city" placeholder="Ville *" required>
             <input class="form-input" autocomplete="off" type="email" name="email" placeholder="Adresse électronique *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             <!-- ajouter l'emploi -->
-            <input type="submit" value="ENVOYER" id="sendBasket" class="btn" id="sendButton">
+            <input type="submit" value="ENVOYER" id="sendBasket" class="btn" id="sendButton" onclick="senData()">
         </form>
     </section>
 
+
     <!-- Scripts -->
     <script src="../js/global-functions.js"></script>
+    <script src="../js/from-gestion.js"></script>
     <script src="../js/basket.js"></script>
+    
     
 </body>
 </html>

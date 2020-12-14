@@ -15,7 +15,9 @@ fetch(urlApi)
     //boucle sur l'ensemble des éléments de la réponse
     for ( i = 0 ; i < datas.length ; i++ ) {
         console.log(datas[i].name);
+        
         if ( '?' + datas[i].name.replace(/ /g, '%20') == window.location.search) {
+            var currentProductId = datas[i]._id;
             productToCusto(productCusto, datas[i].name, datas[i].price, datas[i].imageUrl, datas[i].description);
             var myProductCusto = document.getElementById('prdt-custo');
             var choice = addIdEl(myProductCusto,'div', 'choices');
@@ -31,6 +33,8 @@ fetch(urlApi)
         }
     }
 
+    console.log(currentProductId);
+    
     //ajout dans le localStorage
     var buttonBasket = document.getElementById('buttonBasket');
 
@@ -46,7 +50,7 @@ fetch(urlApi)
         //récupération de la quantité choisie
         const quantiteChoisie = document.getElementById('quantite-choisie').options[document.getElementById('quantite-choisie').selectedIndex].text;
         // définition du produit choisi
-        const myProductChoose = Object.fromEntries([['nom',nameProduct], ['prix', priceProduct],['quantité', quantiteChoisie], ['lentille',lentilleChoisie]]);
+        const myProductChoose = Object.fromEntries([['id',currentProductId], ['nom',nameProduct], ['prix', priceProduct],['quantité', quantiteChoisie], ['lentille',lentilleChoisie]]);
 
         let items = [];
 
