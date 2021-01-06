@@ -14,6 +14,6 @@ fetch(urlApi)
     datas.forEach(e => {
         productInList(productsList, e.name, e.price, e.imageUrl, 'pages/product-details.html?' + e.name);
     });
-}).catch( () => {
+}).catch(() => {
     productsList.innerHTML = 'le serveur est éteint';
 });

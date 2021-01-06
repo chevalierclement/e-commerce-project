@@ -38,4 +38,3 @@ function sendData(){
         console.log('error');
     });
 };
-

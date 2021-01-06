@@ -7,6 +7,8 @@ var buttonEmptyBasket = document.getElementById('emptyBasket');
 
 
 
+
+
 // élaboration du tableau de produit commandé à partir du local storage
 if (localStorage.length === 0) {
     var emptyBasket = document.createElement('p');

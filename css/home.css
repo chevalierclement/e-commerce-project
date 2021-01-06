@@ -7,21 +7,20 @@
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none;
-    
 }
 
 body{
-    background: #F2D3BF;
+    background: #FAE6CE;
+    color: #5C2F00;
 }
 
 /* Navbar */
 .navbar{
-    background: rgb(233, 230, 230);
+    /*background: rgb(233, 230, 230);*/
     width: 100vw;
 }
 
 .navbar-container{
-    width: 100%;
     max-width: 1300px;
     margin: 0 auto;
     padding: 20px 100px;
@@ -50,7 +49,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    max-width: 1200px;
+    margin: auto; 
 }
 
 #prdt-lt{
@@ -58,18 +58,16 @@ body{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    
-    width: 100%;
-    
+    width: 100%; 
 }
 
 #prdt-item{
-    margin: 50px 120px;
+    margin: 50px 50px;
 }
 
 .prdt-lt-title{
-    font-size: 5rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 20px;
     padding-top: 45px;

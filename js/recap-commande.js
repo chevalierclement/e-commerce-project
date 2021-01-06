@@ -2,6 +2,11 @@
 const monIdOrder = document.getElementById('id_order');
 const idCommande = localStorage.getItem('monIdOrder');
 
+
+
+
+
+
 var totalAm = 0;
 var localItems = JSON.parse(localStorage.getItem('items'));
 var totalPrice = document.getElementById('total-am');
